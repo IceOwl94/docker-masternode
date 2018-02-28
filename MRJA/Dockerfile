@@ -2,7 +2,7 @@ FROM amd64/ubuntu:16.04
 
 WORKDIR /root/mrja
 
-RUN apt-get update && apt-get -y upgrade && apt-get -y install git 
+RUN apt-get update && apt-get -y upgrade
 RUN mkdir -p /root/.MRJA/
 
 ADD ./Ganjad .
