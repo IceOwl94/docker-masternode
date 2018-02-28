@@ -5,10 +5,10 @@ WORKDIR /root/mrja
 RUN apt-get update && apt-get -y upgrade
 RUN mkdir -p /root/.MRJA/
 
-ADD ./Ganjad .
+ADD ./Ganjad /usr/local/bin/
 ADD ./start.sh .
 RUN chmod 777 ./start.sh
 
 CMD ./start.sh
 
-EXPOSE 10559 10560
+EXPOSE 42000-42999
