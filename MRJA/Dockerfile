@@ -11,4 +11,4 @@ RUN chmod 777 ./start.sh
 
 CMD ./start.sh
 
-EXPOSE 42000-42999
+EXPOSE 42001-42999

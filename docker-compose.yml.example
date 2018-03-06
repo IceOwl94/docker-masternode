@@ -8,7 +8,7 @@ services:
       context: ./MRJA
       dockerfile: ./Dockerfile
     ports:
-      - '127.0.0.1:10559-10560:10559-10560'
+      - '127.0.0.1:42001:42001'
     tty: true
   xlr-01:
     image: 'xlr'
@@ -19,4 +19,14 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - '127.0.0.1:60020:60020'
+    tty: true
+  smart-01:
+    image: 'smart'
+    env_file:
+      - ./SMART/env/smart01.env
+    build:
+      context: ./SMART
+      dockerfile: ./Dockerfile
+    ports:
+      - '127.0.0.1:42001:42001'
     tty: true
