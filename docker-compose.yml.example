@@ -30,3 +30,13 @@ services:
     ports:
       - '127.0.0.1:9678:9678'
     tty: true
+  mcc-01:
+    image: 'mcc'
+    env_file:
+      - ./MCC/env/mcc01.env
+    build:
+      context: ./MCC
+      dockerfile: ./Dockerfile
+    ports:
+      - '127.0.0.1:29868:29868'
+    tty: true
