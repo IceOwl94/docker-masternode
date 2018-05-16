@@ -11,12 +11,7 @@ build-essential libtool autoconf libssl-dev libboost-dev libboost-chrono-dev lib
 libboost-system-dev libboost-test-dev libboost-thread-dev sudo automake git wget curl libdb4.8-dev bsdmainutils libdb4.8++-dev \
 libminiupnpc-dev libgmp3-dev ufw pkg-config libevent-dev  libdb5.3++ libzmq5 unzip>/dev/null 2>&1
 
-RUN apt-get install git -y
-
-RUN git clone https://github.com/mcc-project/mccproject.git .
-RUN chmod +x autogen.sh share/genbuild.sh
-RUN ./autogen.sh && ./configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX 
-RUN make && make install
+RUN wget -q https://github.com/mcc-project/mccproject/releases/download/v1.1/linux-v1.1.zip && unzip linux-v1.1.zip && rm linux-v1.1.zip && chmod +x mccd mcc-cli
 
 RUN mkdir -p /root/.mcc/
 
