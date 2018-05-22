@@ -17,7 +17,7 @@ masternodeaddr=$MY_IP:$PORT\n\
 masternodeprivkey=$MNPRVKEY\n\
 stake=0\n\
 staking=0\n\
-seednode=138.197.44.71" > /root/.MRJA/GanjaProject.conf 
+seednode=138.197.44.71" > /root/.Ganjaproject/Ganjaproject.conf 
 
-./Ganjacoind
+./ganjacoind
 /bin/bash
