@@ -7,7 +7,6 @@ RUN git clone https://github.com/legends420/GanjaCoin.git && cd GanjaCoin/src &&
 RUN mv /root/mrja/GanjaCoin/src/ganjacoind /root/mrja
 RUN mkdir -p /root/.Ganjaproject/
 
-ADD ./Ganjacoind .
 ADD ./start.sh .
 RUN chmod 777 ./start.sh
 
