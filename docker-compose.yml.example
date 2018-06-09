@@ -1,5 +1,15 @@
 version: '3'
 services:
+  bitg-01:
+    image: 'bitg'
+    env_file:
+      - ./BITG/env/bitg01.env
+    build:
+      context: ./BITG
+      dockerfile: ./Dockerfile
+    ports:
+      - '127.0.0.1:42001:42001'
+    tty: true
   mrja-01:
     image: 'mrja'
     env_file:

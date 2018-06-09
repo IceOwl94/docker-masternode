@@ -1,6 +1,6 @@
 FROM amd64/ubuntu:16.04
 
-WORKDIR /root/mcc
+WORKDIR /root/bitg
 
 RUN apt-get update && apt-get -y upgrade
 
