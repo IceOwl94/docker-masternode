@@ -11,7 +11,8 @@ RUN add-apt-repository  -y  ppa:bitcoin/bitcoin
 RUN apt-get update
 RUN apt-get install -y libdb4.8-dev libdb4.8++-dev
 
-RUN wget https://github.com/bitcoingreen/bitcoingreen/releases/download/1.1.0/bitcoingreen-1.1.0-x86_64-linux-gnu.tar.gz
+RUN wget https://github.com/bitcoingreen/bitcoingreen/releases/download/1.2.1/bitcoingreen-1.2.1-x86_64-linux-gnu.tar.gz
+
 RUN tar -xzf bitcoingreen*.tar.gz
 RUN mv  bitcoingreen*/bin/* .
 
