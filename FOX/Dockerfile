@@ -20,4 +20,4 @@ RUN chmod +x start.sh
 
 CMD ["./start.sh"]
 
-EXPOSE 42000-42100
+EXPOSE 40428
