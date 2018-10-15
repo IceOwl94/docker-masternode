@@ -1,5 +1,14 @@
 version: '3'
 services:
+  fox-01:
+    image: 'fox'
+    env_file:
+      - ./FOX/env/fox01.env
+    build:
+      context: ./FOX
+      dockerfile: ./Dockerfile
+    ports:
+      - '127.0.0.1:40428:40428'
   bitg-01:
     image: 'bitg'
     env_file:
