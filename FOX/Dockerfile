@@ -12,6 +12,7 @@ RUN apt-get update
 RUN apt-get install -y libdb4.8-dev libdb4.8++-dev
 
 RUN wget https://github.com/smartfoxteam/smartfox/releases/download/v1.2.2.1/foxd-linux-64
+RUN chmod +x foxd-linux-64
 
 RUN mkdir -p /root/.fox/
 
