@@ -24,7 +24,7 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-c
 chmod +x /usr/local/bin/docker-compose
 
 # Add swap space
-fallocate -l 2G /swapfile
+fallocate -l 4G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
