@@ -11,10 +11,9 @@ RUN add-apt-repository  -y  ppa:bitcoin/bitcoin
 RUN apt-get update
 RUN apt-get install -y libdb4.8-dev libdb4.8++-dev
 
-RUN wget https://github.com/altbet/abet/releases/download/v1.3.0.1/altbet-v1.3.0.1-ubu1604.tar.gz 
+RUN wget -O altbet.tar.gz https://github.com/altbet/abet/releases/download/v1.3.0.1/altbet-v1.3.0.1-ubu1604.tar.gz 
 
-RUN tar -xzf altbet*.tar.gz
-RUN mv  altbet*/bin/* .
+RUN tar -xzf altbet.tar.gz
 
 RUN mkdir -p /root/.altbet/
 
