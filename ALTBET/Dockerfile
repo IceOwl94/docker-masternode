@@ -5,7 +5,7 @@ WORKDIR /root/mn
 RUN apt-get update && apt-get -y upgrade
 
 RUN apt-get install -y nano htop git wget software-properties-common build-essential libtool autotools-dev pkg-config libssl-dev \
-libboost-all-dev libevent-dev libminiupnpc-dev autoconf automake unzip
+libboost-all-dev libevent-dev libminiupnpc-dev autoconf automake unzip libzmq3-dev
 
 RUN add-apt-repository  -y  ppa:bitcoin/bitcoin
 RUN apt-get update
