@@ -14,4 +14,4 @@ externalip=$MY_IP\n\
 masternodeprivkey=$MNPRVKEY" > /root/.altbet/altbet.conf
 
 ./altbetd
-/bin/bash
+tail -f /dev/null
