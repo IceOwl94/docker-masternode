@@ -1,7 +1,7 @@
 FROM amd64/ubuntu:16.04
 
 ENV CONFIG_FILE="altbet.conf"
-ENV CONFIG_FOLDER="altbet.conf"
+ENV CONFIG_FOLDER="/root/.altbet"
 ENV COIN_BLOCKS="https://github.com/altbet/bootstraps/releases/download/166215/bootstrap.zip"
 ENV WALLET="https://github.com/altbet/abet/releases/download/v1.3.0.1/altbet-v1.3.0.1-ubu1604.tar.gz"
 
