@@ -25,8 +25,8 @@ RUN mkdir -p $CONFIG_FOLDER
 # Bootstrap blockchain
 RUN cd  $CONFIG_FOLDER \
 && wget -q $COIN_BLOCKS -O bootstrap.zip \
-&& unzip -q bootstrap.zip >/dev/null 2>&1 \
-&& rm bootstrap.zip >/dev/null 2>&1
+&& unzip -q bootstrap.zip \
+&& rm bootstrap.zip
 
 ADD ./start.sh .
 RUN chmod 777 start.sh
