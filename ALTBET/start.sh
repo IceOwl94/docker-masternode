@@ -8,8 +8,8 @@ server=1\n\
 daemon=1\n\
 listen=1\n\
 masternode=1\n\
-port=$PORT\n\
-masternodeaddr=$MY_IP:$PORT\n\
+port=2238\n\
+masternodeaddr=$MY_IP:2238\n\
 externalip=$MY_IP\n\
 masternodeprivkey=$MNPRVKEY
 
