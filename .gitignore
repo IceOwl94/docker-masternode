@@ -1,2 +1,13 @@
-docker-compose.yml
-**/*.env
+/docker-compose.yml
+config/*
+
+*-debug.log
+*-error.log
+/.nyc_output
+/dist
+/lib
+/tmp
+/yarn.lock
+node_modules
+
+!/**/.gitkeep

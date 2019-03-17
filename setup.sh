@@ -23,6 +23,10 @@ sudo apt-get install -y docker-ce
 sudo curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
+# Nodejs setup
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
 # Add swap space
 fallocate -l 4G /swapfile
 chmod 600 /swapfile
@@ -32,6 +36,6 @@ cp /etc/fstab /etc/fstab.bak
 echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 
 # Add startup cron
-(crontab -l ; echo "@reboot cd $(pwd) && ./start.sh")| crontab -
+(crontab -l ; echo "@reboot cd $(pwd) && /usr/local/bin/docker-compose up -d")| crontab -
 
 reboot
