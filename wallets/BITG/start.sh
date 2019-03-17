@@ -14,4 +14,4 @@ externalip=$MY_IP\n\
 masternodeprivkey=$MNPRVKEY" > /root/.bitcoingreen/bitcoingreen.conf
 
 ./bitcoingreend
-/bin/bash
+tail -f /dev/null
