@@ -1,6 +1,6 @@
 import { Command, flags } from '@oclif/command'
 import { readdirSync, readdir, readFileSync, writeFileSync } from 'fs';
-import { Builder } from '../../../wallets/builder'
+import { Builder } from '../../wallets/builder'
 
 export default class Build extends Command {
   static description = 'build all docker-compose.*.yml files'
