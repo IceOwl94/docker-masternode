@@ -27,6 +27,9 @@ chmod +x /usr/local/bin/docker-compose
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
+# Install dependencies
+npm i
+
 # Add swap space
 fallocate -l 4G /swapfile
 chmod 600 /swapfile
