@@ -39,7 +39,9 @@ export default class Build extends Command {
       // Build corresponding docker-compose fragment
       .map(({ builder, rows }) => {
         const builderInstance: Builder = new builder.default()
-        return rows.map(row => builderInstance.build(row)).join('')
+        return rows
+          .filter(row=>row)
+          .map(row => builderInstance.build(row)).join('')
       }).join('')
 
     return `
