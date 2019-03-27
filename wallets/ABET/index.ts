@@ -1,9 +1,5 @@
-import { Builder } from '../builder';
-
-export default class AbetBuilder implements Builder {
-
-    
-    build(config: string): string {
+export default class AbetBuilder {
+    build(config: string) {
         // 0:alias 1:ipPort 2:pk 3:txHash 4:txIndex
         const tokens = config.split(' ');
 
