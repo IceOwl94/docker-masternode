@@ -24,10 +24,9 @@ function buildDockerCompose(configFolder: string) {
     }))
     // Build corresponding docker-compose fragment
     .map(({ builder, rows }) => {
-      const builderInstance = new builder.default()
       return rows
         .filter(row => row)
-        .map(row => builderInstance.build(row)).join('')
+        .map(row => builder.build(row)).join('')
     }).join('')
 
   return `version: '3'
