@@ -10,4 +10,6 @@ config/*
 /yarn.lock
 node_modules
 
+.idea
+
 !/**/.gitkeep
