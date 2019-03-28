@@ -8,3 +8,5 @@ watcher.on('change', path => {
     console.log(`changed: ${path}`)
     build(configPath)
 })
+
+console.log('watching config...');

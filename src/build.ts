@@ -30,8 +30,7 @@ function buildDockerCompose(configFolder: string) {
         .map(row => builderInstance.build(row)).join('')
     }).join('')
 
-  return `
-version: '3'
+  return `version: '3'
 services: 
 ${dockerComposeBody}`
 }
