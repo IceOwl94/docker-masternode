@@ -38,7 +38,7 @@ npm install pm2 -g
 
 # Setup pm2 startup
 npm run tsc
-pm2 start ./dist/index.js
+pm2 start ./dist/index.js --log-date-format="YYYY-MM-DD HH:mm:ss.SSSS Z"
 pm2 startup
 pm2 save
 
