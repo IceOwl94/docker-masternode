@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Set timezone to UTC
+timedatectl set-timezone UTC
+
 # Docker setup
 apt-get remove -y docker docker-engine docker.io
 
