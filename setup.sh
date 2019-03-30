@@ -46,8 +46,6 @@ mkswap /swapfile
 swapon /swapfile
 cp /etc/fstab /etc/fstab.bak
 echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
-
-# Add startup cron
 (crontab -l ; echo "@reboot cd $(pwd) && /usr/local/bin/docker-compose up -d")| crontab -
 
 reboot
