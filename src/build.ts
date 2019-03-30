@@ -1,9 +1,20 @@
 import { readdirSync, readFileSync, writeFileSync } from 'fs';
+import {exec} from 'child_process'
 
-export function build(configFolder: string) {
+export function buildAndRun(configFolder: string) {
   const dockerFileContent = buildDockerCompose(configFolder)
 
   writeFileSync('docker-compose.yml', dockerFileContent);
+
+  exec('docker-compose up -d', (err, stdout, stderr) =>{
+    if(err){
+      console.error(err)
+      return
+    }
+
+    console.log(`stdout: ${stdout}`)
+    console.log(`stderr: ${stderr}`)
+  })
 }
 
 function buildDockerCompose(configFolder: string) {

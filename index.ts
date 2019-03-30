@@ -1,13 +1,13 @@
-import {build} from './src/build'
+import {buildAndRun} from './src/build'
 import {watch} from 'chokidar'
 
 const configPath = './config/'
 const watcher = watch('config')
 
-build(configPath)
+buildAndRun(configPath)
 watcher.on('change', path => {
     console.log(`changed: ${path}`)
-    build(configPath)
+    buildAndRun(configPath)
 })
 
 console.log('watching config...');
