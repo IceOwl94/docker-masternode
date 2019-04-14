@@ -3,7 +3,7 @@ FROM amd64/ubuntu:16.04
 ENV CONFIG_FILE="altbet.conf"
 ENV CONFIG_FOLDER="/root/.altbet"
 ENV COIN_BLOCKS="https://github.com/altbet/bootstraps/releases/download/242100/bootstrap.zip"
-ENV WALLET="https://github.com/altbet/abet/releases/download/v.2.0.0.0/altbet-v2.0.0.0-ubu1604.tar.gz"
+ENV WALLET="https://github.com/altbet/abet/releases/download/v.2.0.0.1/altbet-v2.0.0.1-ubu1604.tar.gz"
 
 WORKDIR /root/mn
 
