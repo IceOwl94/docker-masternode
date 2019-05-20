@@ -13,7 +13,7 @@ RUN apt-get install -y libdb4.8-dev libdb4.8++-dev
 
 ENV CONFIG_FILE="altbet.conf"
 ENV CONFIG_FOLDER="/root/.altbet"
-ENV COIN_BLOCKS="https://github.com/altbet/bootstraps/releases/download/305916/bootstrap.zip"
+ENV COIN_BLOCKS="https://github.com/altbet/bootstraps/releases/download/307972/bootstrap.zip"
 ENV WALLET="https://github.com/altbet/abet/releases/download/v.2.0.0.2/altbet-v2.0.0.2-ubu1604.tar.gz"
 
 RUN wget -O wallet.tar.gz $WALLET \
