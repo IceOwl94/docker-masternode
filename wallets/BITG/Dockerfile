@@ -13,7 +13,7 @@ RUN apt-get install -y libdb4.8-dev libdb4.8++-dev
 
 ENV CONFIG_FILE="bitgreen.conf"
 ENV CONFIG_FOLDER="/root/.bitgreen"
-ENV COIN_BLOCKS="https://github.com/IceOwl94/docker-masternode/releases/download/0.1.1/bitg-bootstrap734000.zip"
+ENV COIN_BLOCKS="https://github.com/IceOwl94/docker-masternode/releases/download/0.1.0/bitg-bootstrap-735000.zip"
 ENV WALLET="https://github.com/bitgreen/bitgreen/releases/download/v1.3.1/bitgreen-1.3.1-x86_64-linux-gnu.tar.gz"
 
 RUN wget -O wallet.tar.gz $WALLET \
