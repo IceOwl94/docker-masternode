@@ -11,12 +11,12 @@ RUN add-apt-repository  -y  ppa:bitcoin/bitcoin
 RUN apt-get update
 RUN apt-get install -y libdb4.8-dev libdb4.8++-dev
 
-RUN wget https://github.com/bitgreen/bitgreen/releases/download/v1.3.1/bitgreen-1.3.1-x86_64-linux-gnu.tar.gz
+RUN wget -O wallet.tar.gz https://github.com/bitgreen/bitgreen/releases/download/v1.3.1/bitgreen-1.3.1-x86_64-linux-gnu.tar.gz
 
-RUN tar -xzf bitcoingreen*.tar.gz
-RUN mv  bitcoingreen*/bin/* .
+RUN tar -xzf wallet.tar.gz
+RUN mv  bitgreen*/bin/* .
 
-RUN mkdir -p /root/.bitcoingreen/
+RUN mkdir -p /root/.bitgreen/
 
 ADD ./start.sh .
 RUN chmod 777 start.sh
