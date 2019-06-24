@@ -11,7 +11,7 @@ masternode=1\n\
 port=$PORT\n\
 masternodeaddr=$MY_IP:$PORT\n\
 externalip=$MY_IP\n\
-masternodeprivkey=$MNPRVKEY" > /root/.bitcoingreen/bitcoingreen.conf
+masternodeprivkey=$MNPRVKEY" > /root/.bitgreen/bitgreen.conf
 
-./bitcoingreend
+./bitgreend
 tail -f /dev/null
