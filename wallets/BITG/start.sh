@@ -13,5 +13,5 @@ masternodeaddr=$MY_IP:$PORT\n\
 externalip=$MY_IP\n\
 masternodeprivkey=$MNPRVKEY" > /root/.bitgreen/bitgreen.conf
 
-./bitgreend
+./bitgreen**/bin/bitgreend
 tail -f /dev/null
