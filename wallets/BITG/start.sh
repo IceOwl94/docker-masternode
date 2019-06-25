@@ -10,7 +10,6 @@ listen=1\n\
 masternode=1\n\
 port=9333\n\
 masternodeaddr=$MY_IP:9333\n\
-externalip=$MY_IP\n\
 masternodeprivkey=$MNPRVKEY" > /root/.bitgreen/bitgreen.conf
 
 ./bitgreen**/bin/bitgreend
