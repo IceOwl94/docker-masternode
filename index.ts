@@ -5,9 +5,12 @@ const configPath = './config/'
 const watcher = watch('config')
 
 buildAndRun(configPath)
-watcher.on('change', path => {
-    console.log(`changed: ${path}`)
+// TODO: handle file creation
+watcher.on('all', (eventName, path) => {
+  if(eventName === 'add' || eventName === 'change'){
+    console.log(`${eventName}: ${path}`);
     buildAndRun(configPath)
+  }
 })
 
 console.log('watching config...');
