@@ -43,7 +43,7 @@ pm2 startup
 pm2 save
 
 # Add swap space
-fallocate -l 4G /swapfile
+fallocate -l 8G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
