@@ -13,6 +13,8 @@ export function build(config: string) {
         build:
           context: ./wallets/BITG
           dockerfile: ./Dockerfile
+        ports:
+            - '${ip.replace(/([\[\]])/g, '')}:9333:9333'
 `)
 }
 
