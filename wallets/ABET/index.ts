@@ -13,5 +13,7 @@ export function build(config: string) {
         build:
           context: ./wallets/ABET
           dockerfile: ./Dockerfile
+        ports:
+          - '[${ip}]:2238:2238'
 `)
 }
