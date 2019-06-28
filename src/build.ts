@@ -42,5 +42,11 @@ function buildDockerCompose(configFolder: string) {
 
   return `version: '3'
 services: 
-${dockerComposeBody}`
+${dockerComposeBody}
+networks:
+    default:
+        driver: bridge
+        driver_opts:
+            com.docker.network.enable_ipv6: "true"
+`;
 }
