@@ -5,7 +5,7 @@ WORKDIR /root/mn
 RUN apt-get update && apt-get -y upgrade
 
 RUN apt-get install -y nano htop git wget software-properties-common build-essential libtool autotools-dev pkg-config libssl-dev \
-libboost-all-dev libevent-dev libminiupnpc-dev autoconf automake unzip libzmq3-dev
+libboost-all-dev libevent-dev libminiupnpc-dev autoconf automake unzip libzmq3-dev cron
 
 RUN add-apt-repository  -y  ppa:bitcoin/bitcoin
 RUN apt-get update
@@ -15,6 +15,7 @@ ENV CONFIG_FILE="altbet.conf"
 ENV CONFIG_FOLDER="/root/.altbet"
 ENV COIN_BLOCKS="https://github.com/altbet/bootstraps/releases/download/352483/bootstrap.zip"
 ENV WALLET="https://github.com/altbet/abet/releases/download/v.2.0.0.3/altbet-v2.0.0.3-ubu1604.tar.gz"
+ENV DAEMON_FILE="altbetd"
 
 RUN wget -O wallet.tar.gz $WALLET \
 && tar -xzf wallet.tar.gz \
@@ -28,9 +29,14 @@ RUN cd  $CONFIG_FOLDER \
 && unzip bootstrap.zip \
 && rm bootstrap.zip
 
-ADD ./start.sh .
-RUN chmod 777 start.sh
+# Cron for restart deamon if killed
+RUN echo "* * * * *  (pgrep altbetd > /dev/null 2>&1 || (echo \"[\$(date)] Not found\"; /root/mn/altbetd)) >> /var/log/cron.log \n" > /etc/cron.d/keepalive-cron
+RUN chmod +x /etc/cron.d/keepalive-cron
+RUN crontab /etc/cron.d/keepalive-cron
 
-CMD ["./start.sh"]
+COPY ABET/start.sh .
+RUN chmod +x start.sh
+
+CMD cron && ./start.sh
 
 EXPOSE 2238

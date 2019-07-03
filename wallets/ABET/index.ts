@@ -11,8 +11,8 @@ export function build(config: string) {
           - MNPRVKEY=${tokens[2]}
           - MY_IP=${ip}
         build:
-          context: ./wallets/ABET
-          dockerfile: ./Dockerfile
+          context: ./wallets
+          dockerfile: ./ABET/Dockerfile
         ports:
           - '${ip.replace(/([\[\]])/g, '')}:2238:2238'
 `)
