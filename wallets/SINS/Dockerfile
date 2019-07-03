@@ -20,7 +20,7 @@ ENV DAEMON_FILE="${COIN_NAME}d"
 ENV COIN_PORT=39105
 
 RUN wget -O wallet.tar.gz $WALLET \
-&& tar -xzf wallet.tar.gz --strip-components=1 -C \
+&& tar -xzf wallet.tar.gz --strip-components=1 \
 && rm wallet.tar.gz
 
 RUN mkdir -p $CONFIG_FOLDER
