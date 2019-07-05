@@ -31,13 +31,13 @@ export function build(args: MasternodeArgs, masternodeConfig: MasternodeConfig) 
           context: ./wallets
           dockerfile: ./commons/Dockerfile
           args:
+            - COIN_NAME=${args.COIN_NAME}
             - CONFIG_FILE=${args.CONFIG_FILE}
             - CONFIG_FOLDER=${args.CONFIG_FOLDER}
-            - COIN_BLOCKS=${args.COIN_BLOCKS}
-            - WALLET=${args.WALLET}
-            - COIN_NAME=${args.COIN_NAME}
             - DAEMON_FILE=${args.DAEMON_FILE}
             - COIN_PORT=${args.COIN_PORT}
+            - WALLET=${args.WALLET}
+            - COIN_BLOCKS=${args.COIN_BLOCKS}
         ports:
           - '${masternodeConfig.ipWithoutSquareBrackets}:${args.COIN_PORT}:${args.COIN_PORT}'
 `)

@@ -11,13 +11,13 @@ RUN add-apt-repository  -y  ppa:bitcoin/bitcoin
 RUN apt-get update
 RUN apt-get install -y libdb4.8-dev libdb4.8++-dev
 
+ARG COIN_NAME
 ARG CONFIG_FILE
 ARG CONFIG_FOLDER
-ARG COIN_BLOCKS
-ARG WALLET
-ARG COIN_NAME
 ARG DAEMON_FILE
 ARG COIN_PORT
+ARG WALLET
+ARG COIN_BLOCKS
 
 RUN wget -O wallet.tar.gz $WALLET \
 && tar -xzf wallet.tar.gz --strip-components=1 \
