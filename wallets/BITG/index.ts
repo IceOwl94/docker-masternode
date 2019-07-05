@@ -1,20 +1,12 @@
-import {getIpFromToken} from '../../src/utils'
+import {MasternodeArgs} from '../../src/utils'
 
-export function build(config: string) {
-  // 0:alias 1:ipPort 2:pk 3:txHash 4:txIndex
-  const tokens = config.split(' ')
-  const ip = getIpFromToken(tokens[1]);
-
-  return (`   bitg-${tokens[0]}:
-        image: 'bitg'
-        environment:
-          - MNPRVKEY=${tokens[2]}
-          - MY_IP=${ip}
-        build:
-          context: ./wallets/BITG
-          dockerfile: ./Dockerfile
-        ports:
-          - '${ip.replace(/([\[\]])/g, '')}:9333:9333'
-`)
+export const args: MasternodeArgs = {
+  COIN_NAME: 'bitgreen',
+  SHORT_NAME: 'bitg',
+  CONFIG_FILE: 'bitgreen.conf',
+  CONFIG_FOLDER: '/root/.bitgreen',
+  DAEMON_FILE: 'bitgreend',
+  COIN_PORT: 9333,
+  WALLET: 'https://github.com/bitgreen/bitgreen/releases/download/v1.3.1/bitgreen-1.3.1-x86_64-linux-gnu.tar.gz',
+  COIN_BLOCKS: 'https://github.com/IceOwl94/docker-masternode/releases/download/0.1.0/bitg-bootstrap-735000.zip',
 }
-
