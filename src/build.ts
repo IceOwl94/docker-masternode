@@ -23,7 +23,7 @@ export function buildAndRun(configFolder: string) {
 export function build(args: MasternodeArgs, masternodeConfig: MasternodeConfig) {
 
   return (`   ${args.SHORT_NAME}-${masternodeConfig.alias}:
-        image: ${args.SHORT_NAME}
+        image: dm-${args.SHORT_NAME}
         environment:
           - MNPRVKEY=${masternodeConfig.privateKey}
           - MY_IP=${masternodeConfig.ip}
