@@ -28,8 +28,7 @@ RUN mkdir -p $CONFIG_FOLDER
 # Bootstrap blockchain
 RUN cd  $CONFIG_FOLDER \
 && wget $COIN_BLOCKS -O bootstrap.zip \
-&& unzip bootstrap.zip \
-&& rm bootstrap.zip
+&& unzip bootstrap.zip
 
 # Cron for restart deamon if killed
 RUN echo "* * * * *  (pgrep $DAEMON_FILE > /dev/null 2>&1 || (echo \"[\$(date)] Not found\"; /root/mn/$DAEMON_FILE)) >> /var/log/cron.log \n" > /etc/cron.d/keepalive-cron
