@@ -36,7 +36,7 @@ RUN echo "* * * * *  (pgrep $DAEMON_FILE > /dev/null 2>&1 || (echo \"[\$(date)] 
 RUN chmod +x /etc/cron.d/keepalive-cron
 RUN crontab /etc/cron.d/keepalive-cron
 
-COPY ./start.sh .
+COPY ./commons/start.sh .
 RUN chmod +x start.sh
 
 CMD cron && ./start.sh
