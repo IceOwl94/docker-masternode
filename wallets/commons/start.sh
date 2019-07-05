@@ -15,5 +15,5 @@ masternodeprivkey=$MNPRVKEY
 
 " > /root/.${COIN_NAME}/${COIN_NAME}.conf
 
-./${DAEMON_FILE}
+./**/${DAEMON_FILE}
 tail -f /dev/null
