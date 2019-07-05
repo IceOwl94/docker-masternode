@@ -2,7 +2,7 @@
 
 echo -e "\
 rpcallowip=127.0.0.1\n\
-rpcuser=rpcuser-$(RANDOM)\n\
+rpcuser=rpcuser-${RANDOM}\n\
 rpcpassword=$(date +%s | sha256sum | base64 | head -c 32 ;  )\n\
 server=1\n\
 daemon=1\n\
