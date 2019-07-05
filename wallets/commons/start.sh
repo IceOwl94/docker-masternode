@@ -8,12 +8,12 @@ server=1\n\
 daemon=1\n\
 listen=1\n\
 masternode=1\n\
-port=${COIN_PORT}\n\
-masternodeaddr=$MY_IP:${COIN_PORT}\n\
+port=${ENV_COIN_PORT}\n\
+masternodeaddr=$MY_IP:${ENV_COIN_PORT}\n\
 externalip=$MY_IP\n\
 masternodeprivkey=$MNPRVKEY
 
-" > /root/.${COIN_NAME}/${COIN_NAME}.conf
+" > /root/.${ENV_COIN_NAME}/${ENV_COIN_NAME}.conf
 
-./**/${DAEMON_FILE}
+./**/${ENV_DAEMON_FILE}
 tail -f /dev/null
