@@ -6,7 +6,7 @@ export const args: MasternodeArgs = {
   CONFIG_FILE: 'altbet.conf',
   CONFIG_FOLDER: '/root/.altbet',
   DAEMON_FILE: 'altbetd',
-  COIN_PORT: 2238,
-  WALLET: 'https://github.com/altbet/abet-v.2.0.0.3-deprecated/releases/download/v.2.0.0.3/altbet-v2.0.0.3-ubu1604.tar.gz',
-  COIN_BLOCKS: 'https://github.com/altbet/bootstraps/releases/download/352483/bootstrap.zip',
+  COIN_PORT: 8322,
+  WALLET: 'https://github.com/altbet/abet/releases/download/v1.0.0.0/altbet-v1.0.0.0-ubu1604.tar.gz',
+  COIN_BLOCKS: 'https://github.com/IceOwl94/docker-masternode/releases/download/0.1.0/empty.zip',
 }
