@@ -7,6 +7,6 @@ export const args: MasternodeArgs = {
   CONFIG_FOLDER: '/root/.altbet',
   DAEMON_FILE: 'altbetd',
   COIN_PORT: 2238,
-  WALLET: 'https://github.com/altbet/abet/releases/download/v.2.0.0.3/altbet-v2.0.0.3-ubu1604.tar.gz',
+  WALLET: 'https://github.com/altbet/abet-v.2.0.0.3-deprecated/releases/download/v.2.0.0.3/altbet-v2.0.0.3-ubu1604.tar.gz',
   COIN_BLOCKS: 'https://github.com/altbet/bootstraps/releases/download/352483/bootstrap.zip',
 }
