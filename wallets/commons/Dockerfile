@@ -20,8 +20,7 @@ ARG WALLET
 ARG COIN_BLOCKS
 
 RUN wget -O wallet.tar.gz $WALLET \
-&& tar -xzf wallet.tar.gz \
-&& rm wallet.tar.gz
+&& tar -xzf wallet.tar.gz
 
 RUN mkdir -p $CONFIG_FOLDER
 
