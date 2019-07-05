@@ -27,7 +27,6 @@ export function build(args: MasternodeArgs, masternodeConfig: MasternodeConfig) 
         environment:
           - MNPRVKEY=${masternodeConfig.privateKey}
           - MY_IP=${masternodeConfig.ip}
-          - IP_WITHOUT_SQUARE_BRACKETS=${masternodeConfig.ipWithoutSquareBrackets}
         build:
           context: ./wallets
           dockerfile: ./commons/Dockerfile

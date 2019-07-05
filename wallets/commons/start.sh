@@ -10,7 +10,6 @@ listen=1\n\
 masternode=1\n\
 port=${COIN_PORT}\n\
 masternodeaddr=$MY_IP:${COIN_PORT}\n\
-externalip=${IP_WITHOUT_SQUARE_BRACKETS}\n\
 masternodeprivkey=${MNPRVKEY}
 
 " > /root/.${COIN_NAME}/${COIN_NAME}.conf
