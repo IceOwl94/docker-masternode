@@ -1,20 +1,46 @@
-import { readdirSync, readFileSync, writeFileSync } from 'fs';
-import {exec} from 'child_process'
+import {readdirSync, readFileSync, writeFileSync} from 'fs'
+import {MasternodeArgs, MasternodeConfig, tokenizeMasternodeConfigRow} from './utils'
 
 export function buildAndRun(configFolder: string) {
   const dockerFileContent = buildDockerCompose(configFolder)
 
   writeFileSync('docker-compose.yml', dockerFileContent);
 
-  exec('docker-compose up -d', (err, stdout, stderr) =>{
-    if(err){
-      console.error(err)
-      return
-    }
+  //#########################
+  //## so much black magic ##
+  //#########################
+  // exec('docker-compose up -d', (err, stdout, stderr) =>{
+  //   if(err){
+  //     console.error(err)
+  //     return
+  //   }
+  //
+  //   console.log(`stdout: ${stdout}`)
+  //   console.log(`stderr: ${stderr}`)
+  // })
+}
 
-    console.log(`stdout: ${stdout}`)
-    console.log(`stderr: ${stderr}`)
-  })
+export function build(args: MasternodeArgs, masternodeConfig: MasternodeConfig) {
+
+  return (`   ${args.SHORT_NAME}-${masternodeConfig.alias}:
+        image: ${args.SHORT_NAME}
+        environment:
+          - MNPRVKEY=${masternodeConfig.privateKey}
+          - MY_IP=${masternodeConfig.ip}
+        build:
+          context: ./wallets
+          dockerfile: ./commons/Dockerfile
+          args:
+            - CONFIG_FILE=${args.CONFIG_FILE}
+            - CONFIG_FOLDER=${args.CONFIG_FOLDER}
+            - COIN_BLOCKS=${args.COIN_BLOCKS}
+            - WALLET=${args.WALLET}
+            - COIN_NAME=${args.COIN_NAME}
+            - DAEMON_FILE=${args.DAEMON_FILE}
+            - COIN_PORT=${args.COIN_PORT}
+        ports:
+          - '${masternodeConfig.ipWithoutSquareBrackets}:${args.COIN_PORT}:${args.COIN_PORT}'
+`)
 }
 
 function buildDockerCompose(configFolder: string) {
@@ -25,19 +51,19 @@ function buildDockerCompose(configFolder: string) {
     .filter(fileName => fileName.charAt(0) !== '.')
     // List of config file: BITG, ALTBET, ...
     .map(fileName => ({
-      builder: require(`../wallets/${fileName}`),
+      args: require(`../wallets/${fileName}`).args,
       buffer: readFileSync(configFolder + fileName)
     }))
     // Get content of single config file
-    .map(({ builder, buffer }) => ({
-      builder,
+    .map(({args, buffer}) => ({
+      args,
       rows: buffer.toString().split('\n')
     }))
     // Build corresponding docker-compose fragment
-    .map(({ builder, rows }) => {
+    .map(({args, rows}) => {
       return rows
         .filter(row => row)
-        .map(row => builder.build(row)).join('')
+        .map(row => build(args, tokenizeMasternodeConfigRow(row))).join('')
     }).join('')
 
   return `version: '3'
