@@ -1,19 +1,12 @@
-import {getIpFromToken} from '../../src/utils'
+import {MasternodeArgs} from '../../src/utils'
 
-export function build(config: string) {
-  // 0:alias 1:ipPort 2:pk 3:txHash 4:txIndex
-  const tokens = config.split(' ')
-  const ip = getIpFromToken(tokens[1])
-
-  return (`   abet-${tokens[0]}:
-        image: 'abet'
-        environment:
-          - MNPRVKEY=${tokens[2]}
-          - MY_IP=${ip}
-        build:
-          context: ./wallets
-          dockerfile: ./ABET/Dockerfile
-        ports:
-          - '${ip.replace(/([\[\]])/g, '')}:2238:2238'
-`)
+export const args: MasternodeArgs = {
+  COIN_NAME: 'altbet',
+  SHORT_NAME: 'abet',
+  CONFIG_FILE: 'altbet.conf',
+  CONFIG_FOLDER: '/root/.altbet',
+  DAEMON_FILE: 'altbetd',
+  COIN_PORT: 2238,
+  WALLET: 'https://github.com/altbet/abet/releases/download/v.2.0.0.3/altbet-v2.0.0.3-ubu1604.tar.gz',
+  COIN_BLOCKS: 'https://github.com/altbet/bootstraps/releases/download/352483/bootstrap.zip',
 }
