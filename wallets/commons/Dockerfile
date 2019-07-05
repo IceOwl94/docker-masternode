@@ -24,14 +24,16 @@ ENV COIN_NAME=$COIN_NAME
 ENV DAEMON_FILE=$DAEMON_FILE
 
 RUN wget -O wallet.tar.gz $WALLET \
-&& tar -xzf wallet.tar.gz
+&& tar -xzf wallet.tar.gz \
+&& rm wallet.tar.gz
 
 RUN mkdir -p $CONFIG_FOLDER
 
 # Bootstrap blockchain
 RUN cd  $CONFIG_FOLDER \
 && wget $COIN_BLOCKS -O bootstrap.zip \
-&& unzip bootstrap.zip
+&& unzip bootstrap.zip \
+&& rm bootstrap.zip
 
 # Cron for restart deamon if killed
 RUN echo "* * * * *  (pgrep $DAEMON_FILE > /dev/null 2>&1 || (echo \"[\$(date)] Not found\"; /root/mn/$DAEMON_FILE)) >> /var/log/cron.log \n" > /etc/cron.d/keepalive-cron
