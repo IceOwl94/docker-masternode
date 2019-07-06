@@ -30,7 +30,8 @@ RUN wget -O wallet.tar.gz $WALLET \
 RUN mkdir -p $CONFIG_FOLDER
 
 # Bootstrap blockchain
-RUN cd  $CONFIG_FOLDER \
+RUN test $COIN_BLOCKS \
+&& cd  $CONFIG_FOLDER \
 && wget $COIN_BLOCKS -O bootstrap.zip \
 && unzip bootstrap.zip \
 && rm bootstrap.zip

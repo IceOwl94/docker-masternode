@@ -8,5 +8,5 @@ export const args: MasternodeArgs = {
   DAEMON_FILE: 'altbetd',
   COIN_PORT: 8322,
   WALLET: 'https://github.com/altbet/abet/releases/download/v1.0.0.0/altbet-v1.0.0.0-ubu1604.tar.gz',
-  COIN_BLOCKS: 'https://github.com/IceOwl94/docker-masternode/releases/download/0.1.0/empty.zip',
+  COIN_BLOCKS: '',
 }
