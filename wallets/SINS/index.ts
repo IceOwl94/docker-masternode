@@ -8,5 +8,5 @@ export const args: MasternodeArgs = {
   DAEMON_FILE: 'safeinsured',
   COIN_PORT: 39105,
   WALLET: 'https://github.com/SafeInsure/sins-coin/releases/latest/download/safeinsure-1.0.0-x86_64-linux-gnu.tar.gz',
-  COIN_BLOCKS: 'https://github.com/altbet/bootstraps/releases/download/352483/bootstrap.zip',
+  COIN_BLOCKS: 'https://github.com/IceOwl94/docker-masternode/releases/download/0.1.0/sins-bootstrap.zip',
 }
