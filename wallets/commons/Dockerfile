@@ -23,7 +23,7 @@ ENV COIN_PORT=$COIN_PORT
 ENV COIN_NAME=$COIN_NAME
 ENV DAEMON_FILE=$DAEMON_FILE
 
-RUN curl -o wallet.tar.gz $WALLET \
+RUN curl -Lo wallet.tar.gz $WALLET \
 && tar -xzf wallet.tar.gz \
 && rm wallet.tar.gz
 
@@ -32,7 +32,7 @@ RUN mkdir -p $CONFIG_FOLDER
 # Bootstrap blockchain
 RUN test $COIN_BLOCKS \
 && cd  $CONFIG_FOLDER \
-&& curl -o bootstrap.zip $COIN_BLOCKS \
+&& curl -Lo  bootstrap.zip $COIN_BLOCKS \
 && unzip bootstrap.zip \
 && rm bootstrap.zip || exit 0
 
