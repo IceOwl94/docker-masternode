@@ -4,8 +4,8 @@ WORKDIR /root/mn
 
 RUN apt-get update && apt-get -y upgrade
 
-RUN apt-get install -y nano htop git wget software-properties-common build-essential libtool autotools-dev pkg-config libssl-dev \
-libboost-all-dev libevent-dev libminiupnpc-dev autoconf automake unzip libzmq3-dev cron
+RUN apt-get install -y nano htop git software-properties-common build-essential libtool autotools-dev pkg-config libssl-dev \
+libboost-all-dev libevent-dev libminiupnpc-dev autoconf automake unzip libzmq3-dev cron curl
 
 RUN add-apt-repository  -y  ppa:bitcoin/bitcoin
 RUN apt-get update
@@ -23,7 +23,7 @@ ENV COIN_PORT=$COIN_PORT
 ENV COIN_NAME=$COIN_NAME
 ENV DAEMON_FILE=$DAEMON_FILE
 
-RUN wget -O wallet.tar.gz $WALLET \
+RUN curl -o wallet.tar.gz $WALLET \
 && tar -xzf wallet.tar.gz \
 && rm wallet.tar.gz
 
@@ -32,7 +32,7 @@ RUN mkdir -p $CONFIG_FOLDER
 # Bootstrap blockchain
 RUN test $COIN_BLOCKS \
 && cd  $CONFIG_FOLDER \
-&& wget $COIN_BLOCKS -O bootstrap.zip \
+&& curl -o bootstrap.zip $COIN_BLOCKS \
 && unzip bootstrap.zip \
 && rm bootstrap.zip || exit 0
 
